@@ -4,13 +4,13 @@ const { Schema, model } = mongoose;
 
 const TodosSchema = new Schema(
   {
-    id: User.id,
     title: { type: String },
     description: { type: String },
   },
   {
     versionKey: false,
     timestamps: true,
+    id: true,
   }
 );
 
