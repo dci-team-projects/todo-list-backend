@@ -8,7 +8,7 @@ import Dashboard from "./Dashboard";
 
 const App = () => {
   return (
-    <div>
+    <div className="vh-100 bg-dark text-light ">
       <Router>
         <Switch>
           <Route exact path="/">
