@@ -1,51 +1,51 @@
-import User from "../models/User.js";
+import Todos from "../models/Todos.js";
 import createError from "http-errors";
 
-export const createTodo = async (req, res, error) => {
+export const createTodo = async (req, res, next) => {
   try {
     const todo = req.body;
     console.log(todo);
 
-    const newTodo = await User.create(todo);
+    const newTodo = await Todos.create(todo);
 
     res.json(newTodo);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
-export const getAllTodos = async (req, res, error) => {
+export const getAllTodos = async (req, res, next) => {
   try {
-    const allTodos = await User.find();
+    const allTodos = await Todos.find();
 
     res.json(allTodos);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
-export const updateTodo = async (req, res, error) => {
+export const updateTodo = async (req, res, next) => {
   try {
     const { id } = req.params;
 
     const todo = req.body;
 
-    const updatedTodo = await User.findByIdAndUpdate(id, todo, { new: true });
+    const updatedTodo = await Todos.findByIdAndUpdate(id, todo, { new: true });
     if (!updateTodo) throw createError(404, `no todo under id : ${id}`);
     res.json(`Todo with id:${id} was updated`);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
-export const deleteTodo = async (req, res, error) => {
+export const deleteTodo = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deletedTodo = await User.findByIdAndDelete(id);
+    const deletedTodo = await Todos.findByIdAndDelete(id);
     if (!updateTodo) throw createError(404, `no todo under id : ${id}`);
     res.json(`Todo with id:${id} was deleted`);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };

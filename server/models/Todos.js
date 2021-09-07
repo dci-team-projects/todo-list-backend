@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import User from "./User";
+import User from "./User.js";
 const { Schema, model } = mongoose;
 
 const TodosSchema = new Schema(

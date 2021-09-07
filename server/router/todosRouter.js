@@ -8,11 +8,8 @@ import {
 
 const routerTodos = express.Router();
 
-routerTodos
-  .route("/todos")
-  .get(getAllTodos)
-  .post(createTodo)
-  .put(updateTodo)
-  .delete(deleteTodo);
+routerTodos.route("/").get(getAllTodos).post(createTodo);
+
+routerTodos.route("/:id").put(updateTodo).delete(deleteTodo);
 
 export default routerTodos;

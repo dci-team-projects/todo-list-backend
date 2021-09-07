@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 import createError from "http-errors";
 
-export const createUser = async (req, res, error) => {
+export const createUser = async (req, res, next) => {
   try {
     const user = req.body;
 
@@ -9,11 +9,11 @@ export const createUser = async (req, res, error) => {
 
     res.json(newUser);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
-export const getUser = async (req, res, error) => {
+export const getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -23,16 +23,16 @@ export const getUser = async (req, res, error) => {
 
     res.json({ message: "user found" });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
-export const getAllUsers = async (req, res, error) => {
+export const getAllUsers = async (req, res, next) => {
   try {
     const readAllUsers = await User.find();
 
     res.json(readAllUsers);
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
