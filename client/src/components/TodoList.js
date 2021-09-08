@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import TodoItem from "./TodoItem";
 import TodoListContext from "../context/createContext";
 
 const TodoList = () => {
-  const { todo, setTodo, data } = useContext(TodoListContext);
+  const { todo, setTodo } = useContext(TodoListContext);
 
   const handleChange = (e) => {
     setTodo({

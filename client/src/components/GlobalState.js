@@ -10,12 +10,17 @@ function GlobalState(props) {
     password: "",
   };
 
+  const todoData = {
+    title: "",
+    description: "",
+  };
+
   //initializing state
 
   const [singleUserData, updateData] = useState(data);
   const [allUserData, setUserData] = useState([]);
   const [id, updateId] = useState({});
-  const [todo, setTodo] = useState(data);
+  const [todo, setTodo] = useState(todoData);
 
   return (
     <TodoListContext.Provider
