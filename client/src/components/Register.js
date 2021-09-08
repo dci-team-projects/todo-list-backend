@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 // import formInputs from "../helpers/FormInputs";
 
 const Register = () => {
@@ -12,6 +12,7 @@ const Register = () => {
   };
 
   const [userData, updateUserData] = useState(data);
+  const [currentUser, setCurrentUser] = useState("");
 
   const handleChange = (e) => {
     updateUserData({
@@ -32,7 +33,13 @@ const Register = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          console.log(data.firstName);
+          setCurrentUser(data.firstName);
+        })
+        .then(() => {
+          if (currentUser.length > 1) {
+            return <Redirect to="/welcome" />; //this will only work after authentication
+          }
         })
         .catch((error) => {
           console.error("Error:", error);

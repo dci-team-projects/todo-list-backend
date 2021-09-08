@@ -1,7 +1,12 @@
 import React from "react";
+import TodoList from "./TodoList";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <TodoList />
+    </div>
+  );
 };
 
 export default Dashboard;
