@@ -8,6 +8,7 @@ export const createUser = async (req, res, next) => {
     const newUser = await User.create(user);
 
     res.json(newUser);
+    console.log(newUser);
   } catch (error) {
     next(error);
   }

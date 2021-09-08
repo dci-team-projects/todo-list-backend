@@ -7,8 +7,8 @@ import {
 
 const routerUsers = express.Router();
 
-routerUsers.route("/users").get(getAllUsers).post(createUser);
+routerUsers.route("/").get(getAllUsers).post(createUser);
 
-routerUsers.route("/users/:id").get(getUser);
+routerUsers.route("/:id").get(getUser);
 
 export default routerUsers;
