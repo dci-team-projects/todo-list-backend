@@ -39,13 +39,13 @@ const SignIn = () => {
 
   //create find function and store id in singleuserdataobject
 
-  const handleSubmit = () => {
-    const findUserId = allUserData.find(
-      ({ username }) => username === singleUserData.username
-    );
-    updateId(findUserId);
-    console.log(id);
-  };
+  // const handleSubmit = () => {
+  //   const findUserId = allUserData.find(
+  //     ({ username }) => username === singleUserData.username
+  //   );
+  //   updateId(findUserId);
+  //   console.log(id);
+  // };
 
   return (
     <div>
@@ -77,9 +77,7 @@ const SignIn = () => {
               onChange={handleChange}
             />
           </div>
-          <button className="btn btn-primary" onClick={handleSubmit}>
-            Sign in
-          </button>
+          <button className="btn btn-primary">Sign in</button>
         </form>
       </div>
     </div>
