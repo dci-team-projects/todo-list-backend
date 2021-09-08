@@ -11,10 +11,12 @@ const TodoList = () => {
 
   const handleChange = (e) => {
     setTodo({
-      ...data,
+      ...todo,
       [e.target.name]: e.target.value,
     });
   };
+
+  console.log(todo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ const TodoList = () => {
             className="form-control w-50 m-2"
             onChange={handleChange}
           />
-          <button className="btn btn-primary" onSubmit={handleSubmit}>
+          <button className="btn btn-primary" onClick={handleSubmit}>
             Add a task
           </button>
         </form>
