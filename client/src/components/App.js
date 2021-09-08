@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "./Homepage";
 import Register from "./Register";
 import SignIn from "./SignIn";
-import Welcome from "./Welcome";
 import Dashboard from "./Dashboard";
 import GlobalState from "./GlobalState";
 
@@ -23,9 +22,6 @@ const App = () => {
             </Route>
             <Route path="/signin">
               <SignIn />
-            </Route>
-            <Route path="/welcome">
-              <Welcome />
             </Route>
             <Route path="/dashboard">
               <Dashboard />
