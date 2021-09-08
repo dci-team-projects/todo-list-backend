@@ -7,15 +7,14 @@ import Register from "./Register";
 import SignIn from "./SignIn";
 import Welcome from "./Welcome";
 import Dashboard from "./Dashboard";
-import Header from "./Header";
 import GlobalState from "./GlobalState";
+
 
 const App = () => {
   return (
     <div className="vh-100 bg-dark text-light ">
       <GlobalState>
         <Router>
-          <Header />
           <Switch>
             <Route exact path="/">
               <Homepage />
