@@ -15,6 +15,7 @@ function GlobalState(props) {
   const [singleUserData, updateData] = useState(data);
   const [allUserData, setUserData] = useState([]);
   const [id, updateId] = useState({});
+  const [todo, setTodo] = useState(data);
 
   return (
     <TodoListContext.Provider
@@ -27,6 +28,9 @@ function GlobalState(props) {
         setUserData,
         id,
         updateId,
+        todo,
+        setTodo,
+        data,
       }}
     >
       {props.children}

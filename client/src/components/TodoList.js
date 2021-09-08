@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import TodoItem from "./TodoItem";
+import TodoListContext from "../context/createContext";
 
 const TodoList = () => {
-  const data = {
-    title: "",
-    description: "",
-  };
-
-  const [todo, setTodo] = useState(data);
+  const { todo, setTodo, data } = useContext(TodoListContext);
 
   const handleChange = (e) => {
     setTodo({
