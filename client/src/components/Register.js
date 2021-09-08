@@ -21,6 +21,7 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     const submitData = async () => {
       fetch("http://localhost:5000/users", {
         method: "POST",
@@ -107,9 +108,9 @@ const Register = () => {
             onChange={handleChange}
           />
         </div>
-        <Link to="/welcome" className="btn btn-primary" onClick={handleSubmit}>
+        <button className="btn btn-primary" onClick={handleSubmit}>
           Sign up
-        </Link>
+        </button>
       </form>
     </div>
   );

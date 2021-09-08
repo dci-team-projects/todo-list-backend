@@ -1,3 +1,4 @@
+import { EWOULDBLOCK } from "constants";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +13,7 @@ const SignIn = () => {
   //initializing state
 
   const [singleUserData, updateData] = useState(data);
-  const [allUserData, updateAllUsers] = useState([]);
+  const [allUserData, setUserData] = useState([]);
   const [id, updateId] = useState({});
   //handlechange function to store data in singleuserdata state
 
@@ -31,21 +32,24 @@ const SignIn = () => {
     const submitData = async () => {
       const response = await fetch("http://localhost:5000/users");
       const data = await response.json();
-      updateAllUsers(data);
-      console.log(allUserData);
+      setUserData(data);
     };
     submitData();
   }, []);
 
+  console.log(allUserData);
+
   //create find function and store id in singleuserdataobject
 
-  // const handleSubmit = () => {
-  //   const findUserId = allUserData.find(
-  //     ({ username }) => username === singleUserData.username
-  //   );
-  //   updateId(findUserId);
-  //   console.log(id);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const findUserId = allUserData.find(
+      ({ username }) => username === singleUserData.username
+    );
+    updateId(findUserId);
+  };
+
+  console.log(id);
 
   return (
     <div>
@@ -77,7 +81,9 @@ const SignIn = () => {
               onChange={handleChange}
             />
           </div>
-          <button className="btn btn-primary">Sign in</button>
+          <button className="btn btn-primary" onClick={handleSubmit}>
+            Sign in
+          </button>
         </form>
       </div>
     </div>
