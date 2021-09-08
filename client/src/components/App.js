@@ -7,11 +7,13 @@ import Register from "./Register";
 import SignIn from "./SignIn";
 import Welcome from "./Welcome";
 import Dashboard from "./Dashboard";
+import Header from "./Header";
 
 const App = () => {
   return (
     <div>
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Homepage />
