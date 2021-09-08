@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 // import formInputs from "../helpers/FormInputs";
 
 const Register = () => {
@@ -39,7 +40,6 @@ const Register = () => {
     };
     submitData();
   };
-
   return (
     <div className="w-100 h-75 d-flex justify-content-center flex-column align-items-center">
       <h2 className="pb-5">Register here!</h2>
@@ -108,8 +108,9 @@ const Register = () => {
             onChange={handleChange}
           />
         </div>
-
-        <input type="submit" value="submit" onClick={handleSubmit} />
+        <Link to="/welcome" className="btn btn-primary" onClick={handleSubmit}>
+          Sign up
+        </Link>
       </form>
     </div>
   );
