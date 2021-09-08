@@ -32,7 +32,7 @@ const SignIn = () => {
       const response = await fetch("http://localhost:5000/users");
       const data = await response.json();
       updateAllUsers(data);
-      console.log(data);
+      console.log(allUserData);
     };
     submitData();
   }, []);
