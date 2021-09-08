@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  background-color: #ffdfd6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 2%;
+  padding-right: 2%;
+  align-items: center;
+
+  .wrapper-logo {
+    width: 3rem;
+  }
+
+  .wrapper-links {
+    // outline: 2px solid red;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .link {
+    padding-left: 4%;
+    text-decoration: none;
+  }
+}
