@@ -7,32 +7,36 @@ import Register from "./Register";
 import SignIn from "./SignIn";
 import Welcome from "./Welcome";
 import Dashboard from "./Dashboard";
+import GlobalState from "./GlobalState";
+
 
 const App = () => {
   return (
     <div className="vh-100 bg-dark text-light ">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/signin">
-            <SignIn />
-          </Route>
-          <Route path="/welcome">
-            <Welcome />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/signout">
-            <Homepage />
-          </Route>
-        </Switch>
-      </Router>
+      <GlobalState>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Homepage />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/signin">
+              <SignIn />
+            </Route>
+            <Route path="/welcome">
+              <Welcome />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/signout">
+              <Homepage />
+            </Route>
+          </Switch>
+        </Router>
+      </GlobalState>
     </div>
   );
 };
