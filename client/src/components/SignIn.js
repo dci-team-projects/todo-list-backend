@@ -1,20 +1,12 @@
 import { EWOULDBLOCK } from "constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import TodoListContext from "../context/createContext";
 
 const SignIn = () => {
-  //initializing data for form storage
-  const data = {
-    username: "",
-    id: "",
-    password: "",
-  };
+  const { singleUserData, updateData, allUserData, setUserData, id, updateId } =
+    useContext(TodoListContext);
 
-  //initializing state
-
-  const [singleUserData, updateData] = useState(data);
-  const [allUserData, setUserData] = useState([]);
-  const [id, updateId] = useState({});
   //handlechange function to store data in singleuserdata state
 
   const handleChange = (e) => {
@@ -28,7 +20,7 @@ const SignIn = () => {
 
   //store all data in all userdata state
 
-  useEffect(() => {
+  useEffect((e) => {
     const submitData = async () => {
       const response = await fetch("http://localhost:5000/users");
       const data = await response.json();
