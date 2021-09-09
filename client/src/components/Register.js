@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import formInputs from "../helpers/FormInputs";
 
 const Register = () => {
+  const history = useHistory();
+
   const data = {
     username: "",
     firstName: "",
@@ -37,9 +39,7 @@ const Register = () => {
           setCurrentUser(data.firstName);
         })
         .then(() => {
-          if (currentUser.length > 1) {
-            return <Redirect to="/welcome" />; //this will only work after authentication
-          }
+          history.push("/dashboard");
         })
         .catch((error) => {
           console.error("Error:", error);

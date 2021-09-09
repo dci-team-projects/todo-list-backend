@@ -1,7 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
+import { useHistory } from "react-router";
 import TodoListContext from "../context/createContext";
 
 const SignIn = () => {
+  //initializing useHistory
+  const history = useHistory();
+
+  //importing state from context
+
   const { singleUserData, updateData, allUserData, setUserData, id, updateId } =
     useContext(TodoListContext);
 
@@ -31,12 +37,13 @@ const SignIn = () => {
 
   //create find function and store id in singleuserdataobject
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const findUserId = allUserData.find(
+    const findUserId = await allUserData.find(
       ({ username }) => username === singleUserData.username
     );
-    updateId(findUserId);
+    await updateId(findUserId);
+    history.push("/dashboard");
   };
 
   console.log(id);
@@ -44,7 +51,7 @@ const SignIn = () => {
   return (
     <div>
       <div className="w-100 h-75 d-flex justify-content-center flex-column align-items-center">
-        <h2 className="pb-5">Sign in!</h2>
+        <h2 className="p-5">Sign in!</h2>
         <form className="w-25">
           <div className="form-group pb-4">
             <label htmlFor="username">

@@ -1,45 +1,25 @@
-// import React, { useState, useEffect } from "react";
-// import { Container, Navbar } from "react-bootstrap";
-// import { Link } from "react-router-dom";
-// import { FcTodoList } from "react-icons/fc";
+import { Link, useLocation } from "react-router-dom";
 
-// function Header() {
-//   const [hideNavItems, setHideNavItems] = useState(true);
+function Header() {
+  const location = useLocation();
+  return (
+    <header>
+      <Link to="/" className="nav-link">
+        <h3 className="logo">Todo List App</h3>
+      </Link>
+      <nav>
+        <Link to="/signin" className="nav-link">
+          {location.pathname === "/" || location.pathname === "/register"
+            ? "Log in"
+            : null}
+          {location.pathname === "/signin" && "Log in"}
+        </Link>
+        <Link to="/" className="nav-link">
+          {location.pathname === "/dashboard" ? "Log out" : null}
+        </Link>
+      </nav>
+    </header>
+  );
+}
 
-//   useEffect(() => {
-//     if (
-//       window.location.pathname === "/welcome" ||
-//       "/dashboard" ||
-//       "/register"
-//     ) {
-//       setHideNavItems(false);
-//     }
-//   }, [hideNavItems]);
-
-//   return (
-//     <div className="header">
-//       <div className="wrapper-logo">
-//         <FcTodoList className="logo" size="60px" />
-//       </div>
-//       <nav className="wrapper-links">
-//         {hideNavItems ? (
-//           <Link className="link" path={"/signin"}>
-//             signin
-//           </Link>
-//         ) : (
-//           <>
-//             <Link className="link" path="/homepage">
-//               signout
-//             </Link>
-
-//             <Link className="link" path="/dashboard">
-//               dashboard
-//             </Link>
-//           </>
-//         )}
-//       </nav>
-//     </div>
-//   );
-// }
-
-// export default Header;
+export default Header;

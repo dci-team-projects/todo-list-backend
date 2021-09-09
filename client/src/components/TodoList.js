@@ -3,12 +3,13 @@ import TodoItem from "./TodoItem";
 import TodoListContext from "../context/createContext";
 
 const TodoList = () => {
-  const { todo, setTodo } = useContext(TodoListContext);
+  const { todo, setTodo, id } = useContext(TodoListContext);
 
   const handleChange = (e) => {
     setTodo({
       ...todo,
       [e.target.name]: e.target.value,
+      user: id._id,
     });
   };
 

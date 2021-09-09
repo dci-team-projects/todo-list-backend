@@ -13,14 +13,15 @@ function GlobalState(props) {
   const todoData = {
     title: "",
     description: "",
+    user: "",
   };
 
   //initializing state
 
-  const [singleUserData, updateData] = useState(data);
-  const [allUserData, setUserData] = useState([]);
-  const [id, updateId] = useState({});
-  const [todo, setTodo] = useState(todoData);
+  const [singleUserData, updateData] = useState(data); //state for single user data during signup
+  const [allUserData, setUserData] = useState([]); //here we are fetching all users
+  const [id, updateId] = useState({}); //here we are fetching just the User ID
+  const [todo, setTodo] = useState(todoData); //state to create todos
 
   return (
     <TodoListContext.Provider
