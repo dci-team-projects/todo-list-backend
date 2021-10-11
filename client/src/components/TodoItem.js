@@ -1,7 +1,9 @@
 import React from "react";
 
 const TodoItem = () => {
-  return <div>todo item</div>;
+  // fetch todo from database, use effect
+
+  return <div>todo item is fetching from the database</div>;
 };
 
 export default TodoItem;

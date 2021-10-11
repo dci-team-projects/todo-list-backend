@@ -3,6 +3,8 @@ import { useHistory } from "react-router";
 import TodoListContext from "../context/createContext";
 
 const SignIn = () => {
+  // refactor form in comp
+
   //initializing useHistory
   const history = useHistory();
 
@@ -20,7 +22,7 @@ const SignIn = () => {
     });
   };
 
-  console.log(singleUserData);
+  // console.log(singleUserData);
 
   //store all data in all userdata state
 
@@ -33,7 +35,7 @@ const SignIn = () => {
     submitData();
   }, []);
 
-  console.log(allUserData);
+  // console.log(allUserData);
 
   //create find function and store id in singleuserdataobject
 
@@ -46,7 +48,7 @@ const SignIn = () => {
     history.push("/dashboard");
   };
 
-  console.log(id);
+  // console.log(id);
 
   return (
     <div>
