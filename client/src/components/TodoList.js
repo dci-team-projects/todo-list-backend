@@ -1,15 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoListContext from "../context/createContext";
 
-const TodoList = () => {
-  const { todo, setTodo, id } = useContext(TodoListContext);
+// id need the user_id of the url => req.params , userParams hook
+// should be the "todo" sent to the db, pushed in an array , fetched and mapped
+// or
+// the updated "todo", pushed inside a state "todos" (array) => mapped
+// why do I need to store the todo in the database ? so each user stores each todos
+// next :  f
+const todoData = {
+  title: "",
+  description: "",
+  user: "",
+};
+
+const TodoList = ({ id }) => {
+  const [todo, setTodo] = useState(todoData); //state to create todos
 
   const handleChange = (e) => {
     setTodo({
       ...todo,
       [e.target.name]: e.target.value,
-      user: id._id,
+      user: id,
     });
   };
 
