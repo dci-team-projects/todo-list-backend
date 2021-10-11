@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 const { connect } = mongoose;
+import dotenv from 'dotenv'
+dotenv.config()
 
-const URI =
-  "mongodb+srv://norm123:123norm@cluster1.8zo9w.mongodb.net/todo-list_db?retryWrites=true&w=majority";
+const URI = process.env.MONGO_URI
 
 mongoose
   .connect(URI, {
@@ -15,3 +16,4 @@ mongoose
   .catch((err) => {
     console.log(`We can not connect to the DB ->`, err);
   });
+

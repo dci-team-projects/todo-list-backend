@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import User from "./User.js";
 const { Schema, model } = mongoose;
 
-const TodosSchema = new Schema(
+const TodoSchema = new Schema(
   {
     title: { type: String },
     description: { type: String },
@@ -14,6 +14,6 @@ const TodosSchema = new Schema(
   }
 );
 
-const Todos = model("Todos", TodosSchema);
+const Todo = model("Todo", TodoSchema);
 
-export default Todos;
+export default Todo;

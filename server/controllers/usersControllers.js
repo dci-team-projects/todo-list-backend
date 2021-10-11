@@ -37,3 +37,16 @@ export const getAllUsers = async (req, res, next) => {
     next(error);
   }
 };
+
+
+// users/:id/posts
+export const getUserTodos = async (req, res, next) => {
+  const {id} = re.params
+  try {
+    const userTodos = Todos.find({user: id}).populate({user})
+    if(!userTodos) throw new createError(404, `No todos of user with id ${id} was found.`)
+    res.json(userTodos) 
+  } catch (error) {
+    next(error)
+  }
+}

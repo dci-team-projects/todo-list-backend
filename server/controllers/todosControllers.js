@@ -1,4 +1,4 @@
-import Todos from "../models/Todos.js";
+import Todos from "../models/Todo.js";
 import createError from "http-errors";
 
 export const createTodo = async (req, res, next) => {

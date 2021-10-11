@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", () => {
-  console.log("landing page");
+  console.log("hello world");
 });
 
 app.use("/users", routerUsers);
-app.use("/todos", routerTodos);
+app.use("/todos", routerTodos); 
 
 const PORT = "5000";
 app.listen(PORT, () => {
