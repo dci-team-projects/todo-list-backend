@@ -10,8 +10,8 @@ import isAdmin from '../middleware/isAdmin.js'
 
 const routerTodos = express.Router();
 
-routerTodos.route("/").get(auth, isAdmin, getAllTodos).post(auth, isAdmin, createTodo);
+routerTodos.route("/").get(auth, isAdmin, getAllTodos).post(auth, createTodo);
 
-routerTodos.route("/:id").put(auth, isAdmin, updateTodo).delete(auth, isAdmin, deleteTodo);
+routerTodos.route("/:id").put(auth, updateTodo).delete(auth, deleteTodo);
 
 export default routerTodos;

@@ -15,12 +15,13 @@ import isAdmin from '../middleware/isAdmin.js'
 
 const routerUsers = express.Router();
 
-routerUsers.route("/").get( isAdmin, getAllUsers);
+routerUsers.route("/").get(auth, isAdmin, getAllUsers);
 routerUsers.route('/login').post(login)
 routerUsers.route('/logout').post(logout)
 routerUsers.route('/auth').post(auth, authUser) 
 routerUsers.route('/register').post(register)
-routerUsers.route('/:id/todos').get(auth, getUserTodos)
 routerUsers.route("/:id").get(auth, getUser);
+routerUsers.route('/:id/todos').get(auth, getUserTodos)
+
 
 export default routerUsers;

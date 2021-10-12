@@ -3,6 +3,18 @@ import createError from "http-errors";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'
 
+
+export const getAllUsers = async (req, res, next) => {
+  try {
+    const readAllUsers = await User.find();
+
+    res.json(readAllUsers);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
 export const getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -12,16 +24,6 @@ export const getUser = async (req, res, next) => {
       throw new createError(404, `No user with id ${id} was found.`);
 
     res.json({ message: "user found" });
-  } catch (error) {
-    next(error);
-  }
-};
-
-export const getAllUsers = async (req, res, next) => {
-  try {
-    const readAllUsers = await User.find();
-
-    res.json(readAllUsers);
   } catch (error) {
     next(error);
   }
@@ -57,8 +59,6 @@ export const register = async (req, res, next) => {
 
 }
 
-
-
 // login
 
 export const login = async (req, res, next) => {
@@ -91,7 +91,7 @@ export const logout = async (req, res, next) => {
   res.clearCookie('userToken').send()
 }
 
-
+// Auth route for frontend context 
 export const authUser = async (req, res) => {
   let user = req.user;
   user.password = undefined;

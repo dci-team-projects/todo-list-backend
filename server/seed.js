@@ -69,7 +69,11 @@ const seed = async () => {
     console.log(`seeded`);
 
     // CLOSE CONNECTION TO DATABASE AND FINISH SCRIPT
-    await mongoose.connection.close();
+    try {
+      await mongoose.connection.close();
+    } catch (error) {
+      console.log(error)
+    }
 };
 
 seed();
